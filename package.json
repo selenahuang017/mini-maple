@@ -23,5 +23,9 @@
   "homepage": "https://github.com/selenahuang017/mini-maple#readme",
   "devDependencies": {
     "eslint": "^9.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }

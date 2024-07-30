@@ -11,3 +11,6 @@ Some APIs I want to implement from this forum post: https://forum.maplelegends.c
 - https://maplelegends.com/api/character?name={USER}
 - https://maplelegends.com/api/getlevels?name={USER}
 - https://maplelegends.com/api/getavatar?name={USER}
+
+How to run: 
+- node index.js (to run host)
