@@ -18,3 +18,22 @@ example:
 How to run: 
 - node deploy-commands.js (if creating a new command)
 - node index.js (to run host)
+
+Background image credits to: 
+- https://www.deviantart.com/akarituturu/art/MapleStory-Backgrounds-Enchanted-Forest-419122859
+- all characters in Maplestory (MapleLegends)
+
+
+Next tasks:
+- center avatar's feet to the ground
+- fix overflow on words
+- create a chart for levels
+
+Future commands:
+- fix levels
+- pqs? 
+- servertime just gives server time (UTC)
+- partyroll [n names]
+    - rolls 100-sided die
+    - shows result of each
+    - gives ranking

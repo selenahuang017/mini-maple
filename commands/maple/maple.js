@@ -20,14 +20,15 @@ module.exports = {
         try {
             // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             // WHILE TESTING WE JUST USE THE EXAMPLE DATA SO WE DONT KEEP PINGING THE SERVER
+            // edit: RELEASE THE FLOODGATES
             // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
             // get info
-            /* 
-            const body = await axios.get(formattedURL);
+            
+            const body = await axios.get(infoURL);
             const info = body.data;
-            */
-            const info = example_info;
+            
+            //const info = example_info;
 
             // create canvas + background
             const canvas = Canvas.createCanvas(600, 300);
@@ -36,12 +37,12 @@ module.exports = {
             context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
             // theres a redirect to maplestory.io, so we grab that URL to generate the avatar png
-            /*
+            
             const avatarIMG = await axios.get(avatarURL);
             const redirectURL = avatarIMG.request.res.responseUrl;
             const avatar = await Canvas.loadImage(redirectURL);
-            */
-            const avatar = await Canvas.loadImage('./utils/avatar.jpg');
+            
+            //const avatar = await Canvas.loadImage('./utils/avatar.jpg');
 
             // Draw a rectangle with some dimensions....
             const fontsize = 22;
@@ -65,7 +66,7 @@ module.exports = {
 
             // draw avatar
             const centeredHeight = canvas.height - (avatar.height * 2 + 10);
-            context.drawImage(avatar, 230, centeredHeight, avatar.width * 2, avatar.height * 2);
+            context.drawImage(avatar, 250, centeredHeight, avatar.width * 2, avatar.height * 2);
         
             // Use the helpful Attachment class structure to process the file for you
             const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'character.png' });
