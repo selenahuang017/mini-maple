@@ -3,8 +3,8 @@ const axios = require('axios');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-        .setName('maple')
-        .setDescription('Looks up the character.')
+        .setName('levels')
+        .setDescription("Looks up the character's levels.")
         .addStringOption(option =>
             option.setName('username')
                 .setDescription('ign of character')
@@ -13,17 +13,17 @@ module.exports = {
         await interaction.deferReply({ ephemeral: true });
         
         const username = interaction.options.getString('username');
-        const MAPLE_URL = "https://maplelegends.com/api/character?name=";
+        const MAPLE_URL = "https://maplelegends.com/api/getlevels?name=";
         const formattedURL = MAPLE_URL + username;
         //console.log(formattedURL);
 
         const body = await axios.get(formattedURL);
-        const player = body.data;
-        //console.log(player);
-        if (!Object.keys(player).length){
+        const levels = body.data;
+        console.log(levels);
+        if (!levels.length){
             await interaction.followUp( `No player found for **${username}**.`);
         } else {
-            await interaction.followUp(JSON.stringify(player));
+            await interaction.followUp(JSON.stringify(levels[0]));
         }
 
     },

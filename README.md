@@ -16,4 +16,5 @@ example:
 
 
 How to run: 
+- node deploy-commands.js (if creating a new command)
 - node index.js (to run host)
