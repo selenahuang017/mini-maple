@@ -1,27 +1,26 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
-const { LEVELS_URL } = require('../../utils/URLS.json');
+const { INFO_URL } = require('../../utils/URLS.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-        .setName('levels')
-        .setDescription("Looks up the character's levels.")
+        .setName('info')
+        .setDescription('Looks up information on the character.')
         .addStringOption(option =>
             option.setName('username')
                 .setDescription('ign of character')
                 .setRequired(true)),
     async execute(interaction) {
         await interaction.deferReply();
-        const formattedURL = LEVELS_URL + interaction.options.getString('username');
-        //console.log(formattedURL);
+        const formattedURL = INFO_URL + interaction.options.getString('username');
 
         const body = await axios.get(formattedURL);
-        const levels = body.data;
-        //console.log(levels);
-        if (!levels.length){
+        const player = body.data;
+        //console.log(player);
+        if (!Object.keys(player).length){
             await interaction.followUp( `No player found for **${username}**.`);
         } else {
-            await interaction.followUp(JSON.stringify(levels[0]));
+            await interaction.followUp(JSON.stringify(player));
         }
 
     },

@@ -1,6 +1,7 @@
 const { AttachmentBuilder, SlashCommandBuilder } = require('discord.js');
 const axios = require('axios');
 const Canvas = require('@napi-rs/canvas');
+const { AVATAR_URL } = require('../../utils/URLS.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,11 +12,8 @@ module.exports = {
                 .setDescription('ign of character')
                 .setRequired(true)),
     async execute(interaction) {
-        await interaction.deferReply({ ephemeral: true });
-        
-        const username = interaction.options.getString('username');
-        const MAPLE_URL = "https://maplelegends.com/api/getavatar?name=";
-        const formattedURL = MAPLE_URL + username;
+        await interaction.deferReply();
+        const formattedURL = AVATAR_URL + interaction.options.getString('username');
         try {
             const body = await axios.get(formattedURL);
             
