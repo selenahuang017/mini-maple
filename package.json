@@ -1,0 +1,27 @@
+{
+  "name": "mini-maple",
+  "version": "1.0.0",
+  "description": "creating a maple bot for maplelegends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selenahuang017/mini-maple.git"
+  },
+  "keywords": [
+    "maplestory",
+    "bot",
+    "discord"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/selenahuang017/mini-maple/issues"
+  },
+  "homepage": "https://github.com/selenahuang017/mini-maple#readme",
+  "devDependencies": {
+    "eslint": "^9.8.0"
+  }
+}
