@@ -28,6 +28,7 @@ Next tasks:
 - center avatar's feet to the ground
 - fix overflow on words
 - create a chart for levels
+- hosting: https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers 
 
 Future commands:
 - fix levels

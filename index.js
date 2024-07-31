@@ -31,7 +31,7 @@ client.once(Events.ClientReady, readyClient => {
 
 client.on(Events.InteractionCreate, async interaction => {
 	// logging
-	console.log("Command: " + interaction.commandName);
+	// console.log("Command: " + interaction.commandName);
 	const command = interaction.client.commands.get(interaction.commandName);
 
 	if (!command) {

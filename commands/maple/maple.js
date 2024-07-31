@@ -51,22 +51,27 @@ module.exports = {
             const textTopAlign = 30 + fontsize;
             const offset = fontsize + 5;
             context.fillStyle = "rgba(0, 0, 0, 0.4)";
-            context.fillRect(textLeftAlign / 2 , textLeftAlign / 2, 200, offset * 9 );
+            context.fillRect(textLeftAlign / 2 , textLeftAlign / 2, 250, offset * 9 );
 
             // Text
             context.fillStyle = '#ffffff';
+            const job = info.job.replace("(Ice/Lightning)", "(I/L)").replace("(Fire/Poison)", "(F/P)");
+            const guild = info.guild.length == 0 ? "N/A" : info.guild;
             context.fillText(info.name, textLeftAlign, textTopAlign);
-            context.fillText("Job: " + info.job, textLeftAlign, textTopAlign + offset);
-            context.fillText("Guild: " + info.guild, textLeftAlign, textTopAlign + offset * 2);
+            context.fillText("Job: " + job, textLeftAlign, textTopAlign + offset);
+            context.fillText("Guild: " + guild, textLeftAlign, textTopAlign + offset * 2);
             context.fillText("Level: " + info.level, textLeftAlign, textTopAlign + offset * 3);
             context.fillText("Exp: " + info.exp, textLeftAlign, textTopAlign + offset * 4);
             context.fillText("Fame: " + info.fame, textLeftAlign, textTopAlign + offset * 5);
             context.fillText("Cards: " + info.cards, textLeftAlign, textTopAlign + offset * 6);
             context.fillText("Quests: " + info.quests, textLeftAlign, textTopAlign + offset * 7);
 
+            // TODO: CANNOT FIX THE CHARACTERS TO THE FRICKIN GROUND
             // draw avatar
-            const centeredHeight = canvas.height - (avatar.height * 2 + 10);
-            context.drawImage(avatar, 250, centeredHeight, avatar.width * 2, avatar.height * 2);
+            const multiplier = 1.8;
+            const centeredHeight = canvas.height - (avatar.height * (multiplier + 0.2));
+            context.drawImage(avatar, 350, centeredHeight, 
+                avatar.width * multiplier, avatar.height * multiplier);
         
             // Use the helpful Attachment class structure to process the file for you
             const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'character.png' });

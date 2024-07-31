@@ -18,13 +18,13 @@ module.exports = {
             const body = await axios.get(formattedURL);
             
             // create canvas
-            const canvas = Canvas.createCanvas(200, 200);
+            const canvas = Canvas.createCanvas(500, 300);
             const context = canvas.getContext('2d');
             
             // theres a redirect to maplestory.io, so we grab that URL to generate the png
             const redirectURL = body.request.res.responseUrl;
             const avatar = await Canvas.loadImage(redirectURL);
-        
+            //console.log("Width:" + avatar.width * 2 + ", Height: " + avatar.height * 2);
             // draw avatar
             context.drawImage(avatar, 0, 0, avatar.width * 2, avatar.height * 2);
         
