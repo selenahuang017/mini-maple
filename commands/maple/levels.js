@@ -1,10 +1,9 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const axios = require('axios');
-const Canvas = require('@napi-rs/canvas');
-const Chart = require('chart.js/auto');
 const QuickChart = require('quickchart-js');
 const { LEVELS_URL } = require('../../utils/URLS.json');
 const example_levels = require('../../utils/example_levels');
+const chart_config = require('../../utils/chart_config');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -16,7 +15,8 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction) {
         await interaction.deferReply();
-        const formattedURL = LEVELS_URL + interaction.options.getString('username');
+        const username = interaction.options.getString('username')
+        const formattedURL = LEVELS_URL + username;
         //console.log(formattedURL);
 
         // TEST: COMMENTING OUT THESE TWO
@@ -35,45 +35,22 @@ module.exports = {
                 obj[newKey] = obj[oldKey];
                 delete obj[oldKey];
               };
+            
             levels.forEach( obj => renameKey( obj, 'date', 'x' ) );
             levels.forEach( obj => renameKey( obj, 'level', 'y' ) );
-            const example_data = [{x: '2024-05-07 16:14:51', y: 20}, {x: '2024-05-07 16:24:05', y: 10}];
-            console.log(JSON.stringify( levels ));
-            console.log(JSON.stringify( example_data ));
-            const chart = new QuickChart();
-            const config = {
-                type: 'scatter',
-                data: {
-                    labels: 'Levels Timescale',
-                    datasets: [{
-                        data: [{x: '2024-05-07 16:14:51', y: 20}, {x: '2024-05-07 16:24:05', y: 10}],
-                    }],
-                },
-                options: {
-                    scales: {
-                        x: {
-                            type: 'time',
-                        }
-                    }, 
-                }
-            };
+            const chart = await new QuickChart();
+            const conf = chart_config;
+            //console.log("test: "+ conf.data.datasets[0].data.length);
+            conf.data.datasets[0].data = example_levels;
+
+            console.log("test2: "+ conf.data.datasets[0].data.length);
+            conf.options.title.text = "Levelling rate of " + username;
             chart
-              .setConfig({
-                type: 'scatter',
-                data: {
-                    labels: 'Levels Timescale',
-                    datasets: [{
-                        data: [{x: 10, y: 20}, {x: 15, y: 10}],
-                    }],
-                },
-                options: {}
-            })
-              .setWidth(600)
-              .setHeight(300);
+              .setConfig(chart_config)
+              .setWidth(800)
+              .setHeight(600);
             const shortURL = await chart.getShortUrl();
             console.log(shortURL);
-            //const level_chart = await Canvas.loadImage(chart.getShortUrl());
-            //context.drawImage(level_chart, 0, 0, canvas.width, canvas.height);
 
             // Use the helpful Attachment class structure to process the file for you
             //const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'levels.png' });
