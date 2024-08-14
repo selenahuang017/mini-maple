@@ -316,10 +316,6 @@
         ]
     },
     "options": {
-        "parsing": {
-            "xAxisKey": "date",
-            "yAxisKey": "level"
-          },
           "layout": {
             "padding": {
                 "right": 20

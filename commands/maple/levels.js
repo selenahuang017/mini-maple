@@ -17,33 +17,22 @@ module.exports = {
         await interaction.deferReply();
         const username = interaction.options.getString('username')
         const formattedURL = LEVELS_URL + username;
-        //console.log(formattedURL);
+        const body = await axios.get(formattedURL);
+        var levels = body.data;
 
-        // TEST: COMMENTING OUT THESE TWO
-        // const body = await axios.get(formattedURL);
-        // const levels = body.data;
-        var levels = example_levels;
-
-        //console.log(levels);
         if (!levels.length){
             await interaction.followUp( `No player found for **${username}**.`);
         } else {
-            // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            // WHILE TESTING WE JUST USE THE EXAMPLE DATA SO WE DONT KEEP PINGING THE SERVER
-            // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             function renameKey ( obj, oldKey, newKey ) {
                 obj[newKey] = obj[oldKey];
                 delete obj[oldKey];
               };
-            
-            levels.forEach( obj => renameKey( obj, 'date', 'x' ) );
-            levels.forEach( obj => renameKey( obj, 'level', 'y' ) );
             const chart = await new QuickChart();
             const conf = chart_config;
-            //console.log("test: "+ conf.data.datasets[0].data.length);
-            conf.data.datasets[0].data = example_levels;
+            levels.forEach( obj => renameKey( obj, 'date', 'x' ) );
+            levels.forEach( obj => renameKey( obj, 'level', 'y' ) );
+            conf.data.datasets[0].data = levels;
 
-            console.log("test2: "+ conf.data.datasets[0].data.length);
             conf.options.title.text = "Levelling rate of " + username;
             chart
               .setConfig(chart_config)
@@ -52,9 +41,7 @@ module.exports = {
             const shortURL = await chart.getShortUrl();
             console.log(shortURL);
 
-            // Use the helpful Attachment class structure to process the file for you
-            //const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'levels.png' });
-            await interaction.editReply(shortURL);
+           await interaction.editReply(shortURL);
         }
 
     },
