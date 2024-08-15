@@ -316,18 +316,19 @@
         ]
     },
     "options": {
-          "layout": {
+        "layout": {
             "padding": {
-                "right": 20
+                "left": 20,
+                "top": 10,
+                "bottom": 20,
+                "right": 25
             }
         },
         "title": {
             "display": true,
             "text": "Levelling rate",
-            "font": {
-                "size": 40,
-                "family": "Arial"
-            }
+            "fontSize": 18,
+            "fontColor": "white"
         },
         "legend": {
             "display": false
@@ -342,18 +343,25 @@
                             "day": "YYYY-MM-DD"
                         }
                     },
+                    "bounds": "ticks",
                     "scaleLabel": {
                         "display": true,
-                        "labelString": "Date"
+                        "labelString": "Date",
+                        "fontSize": 16,
+                        "fontColor": "white"
                     },
                     "ticks": {
                         "maxTicksLimit": 8,
-                        "align": "center"
+                        "align": "center",
+                        "fontSize": 14,
+                        "fontColor": "white",
+                        "includeBounds" : true
                     },
                     "gridLines": {
                         "display": true,
                         "drawBorder": true,
-                        "drawOnChartArea": false
+                        "drawOnChartArea": false,
+                        "color" : "white"
                     }
                 }
             ],
@@ -361,15 +369,20 @@
                 {
                     "scaleLabel": {
                         "display": true,
-                        "labelString": "level"
+                        "labelString": "Level",
+                        "fontSize": 16,
+                        "fontColor": "white"
                     },
                     "ticks": {
-                        "min": 0
+                        "min": 0,
+                        "fontSize": 14,
+                        "fontColor": "white"
                     },
                     "gridLines": {
                         "display": true,
                         "drawBorder": true,
-                        "drawOnChartArea": false
+                        "drawOnChartArea": false,
+                        "color" : "white"
                     }
                 }
             ]

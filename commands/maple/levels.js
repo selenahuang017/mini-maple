@@ -36,6 +36,7 @@ module.exports = {
             conf.options.title.text = "Levelling rate of " + username;
             chart
               .setConfig(chart_config)
+              .setBackgroundColor("#313339") // discord gray
               .setWidth(800)
               .setHeight(600);
             const shortURL = await chart.getShortUrl();

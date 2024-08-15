@@ -1,7 +1,7 @@
 # mini-maple
 Mini maple discord bot to implement some calls to maplelegends
 
-I want to be able to implement 
+ITS WORKING:
 - $maple usr
 - $levels usr
 
@@ -25,13 +25,10 @@ Background image credits to:
 
 
 Next tasks:
-- center avatar's feet to the ground
-- fix overflow on words
-- create a chart for levels
+- center avatar's feet to the ground (gave up)
 - hosting: https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers 
 
 Future commands:
-- fix levels
 - pqs? 
 - servertime just gives server time (UTC)
 - partyroll [n names]
