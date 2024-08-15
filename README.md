@@ -30,8 +30,3 @@ Next tasks:
 
 Future commands:
 - pqs? 
-- servertime just gives server time (UTC)
-- partyroll [n names]
-    - rolls 100-sided die
-    - shows result of each
-    - gives ranking
