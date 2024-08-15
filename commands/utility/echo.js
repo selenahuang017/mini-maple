@@ -6,9 +6,9 @@ module.exports = {
         .setDescription('Replies with your input!')
         .addStringOption(option =>
             option.setName('input')
-                .setDescription('The input to echo back')
+                .setDescription('any text you want')
                 .setRequired(true)),
     async execute(interaction) {
-        await interaction.reply(interaction.options.getString('input'));
+        await interaction.reply("Mini Maple says: " + interaction.options.getString('input') + " :3");
     },
 };
