@@ -1,5 +1,0 @@
-{
-    "INFO_URL":"https://maplelegends.com/api/character?name=",
-    "LEVELS_URL":"https://maplelegends.com/api/getlevels?name=",
-    "AVATAR_URL":"https://maplelegends.com/api/getavatar?name="
-}
