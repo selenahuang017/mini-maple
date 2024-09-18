@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/selenahuang017/mini-maple#readme",
   "devDependencies": {
-    "eslint": "^9.8.0"
+    "eslint": "^9.8.0",
+    "wrangler": "^3.78.4"
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.53",

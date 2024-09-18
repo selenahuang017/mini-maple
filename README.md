@@ -26,7 +26,10 @@ Background image credits to:
 
 Next tasks:
 - center avatar's feet to the ground (gave up)
-- hosting: https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers 
+
+Hosting: 
+- following: https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers
+- borrowing from: https://github.com/discord/cloudflare-sample-app
 
 Future commands:
 - pqs? 

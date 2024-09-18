@@ -1,0 +1,8 @@
+name = "mini-maple"
+main = "./src/server.js"
+compatibility_date="2024-09-18"
+
+# [secrets]
+# DISCORD_TOKEN
+# DISCORD_PUBLIC_KEY
+# DISCORD_APPLICATION_ID
