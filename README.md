@@ -29,6 +29,7 @@ Next tasks:
 
 Hosting: 
 - following: https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers
+- help: https://shubhamsinghbundela.hashnode.dev/hosting-a-discord-bot-on-cloudflare-workers
 - borrowing from: https://github.com/discord/cloudflare-sample-app
 
 Future commands:
